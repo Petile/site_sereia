@@ -1520,15 +1520,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 //https://script.google.com/macros/s/AKfycbwjj8LekrO5BKDHu2R_9Ir2gDKtu9EGjs1qvLpOWvI/dev
 
                 window["tracker"].send("pageview");
-    
-    
-                tracker.send("evento", {
-                    category:"orçamento",
-                    action:"clique",
-                    label:"botão orçamento",
-                })
-      
-    
+   
                 var botaoOrcamento = document.querySelector("a.btn-xl")
                 botaoOrcamento.addEventListener("click", function(){
                     tracker.send("evento", {
