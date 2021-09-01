@@ -1527,6 +1527,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     action:"clique",
                     label:"botão orçamento",
                 })
+      
+    
+                var botaoOrcamento = document.querySelector("a.btn-xl")
+                botaoOrcamento.addEventListener("click", function(){
+                    tracker.send("evento", {
+                    category:"orçamento",
+                    action:"clique",
+                    label:"botão orçamento",
+                })
+                })
                  
     
     
