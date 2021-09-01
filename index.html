@@ -1489,7 +1489,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
 
   <script>
-    
+     
     //tn: tracker name
                 //tc: tracher code
                 //cn: cookie name
@@ -1522,6 +1522,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 window["tracker"].send("pageview");
     
     
+                tracker.send("evento", {
+                    category:"orçamento",
+                    action:"clique",
+                    label:"botão orçamento",
+                })
+                 
     
     
     /* jqBootstrapValidation
