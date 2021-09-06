@@ -914,15 +914,26 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
     <![endif]-->
+  
+  
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-206390888-1', 'auto');
+ga('send', 'pageview');
+ga('send', 'event', 'claralinda');
+</script>
+<!-- End Google Analytics -->
 
   
 </head>
 
 <body id="page-top" class="index">
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TWPM36V"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+
   
   <img src="https://tag-trainer.raccoon.ag/static/shared/balloon.svg" id="call-me-baby" />
   <!-- Navigation -->
@@ -1486,11 +1497,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Plugin JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
-  
 
-  <script>
-     
-    //tn: tracker name
+    <script>
+                //tn: tracker name
                 //tc: tracher code
                 //cn: cookie name
                 (function(tn, tc, cn) {
@@ -1530,8 +1539,99 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 })
                 })
                  
-    
-    
+                let vezes = 0
+            
+            window.addEventListener('scroll', function() {
+                const botao = document.querySelector('button.btn-xl')
+                const posicoes = botao.getBoundingClientRect();
+                const inicio = posicoes.top;
+                const fim = posicoes.bottom;
+                let estaVisivel = false;
+                
+                if((inicio >= 0) && (inicio <= window.innerHeight)) {
+                    estaVisivel = true;
+                } 
+
+                if (estaVisivel == true && vezes == 0){
+                    tracker.send('evento', {
+                        category: 'orçamento',
+                        action: 'visualizou',
+                        label: 'formulário'
+                    })
+                    vezes = 1
+                }
+
+            })
+
+            
+                var preencheu = 0
+                var prefo = Array.from(document.querySelectorAll(".form-control"))
+                prefo.forEach(function(elemento){
+                    elemento.addEventListener("change", function(){
+                    if (preencheu == 0){
+                    tracker.send("evento", {
+                    category: 'orçamento',
+                    action: 'visualizou',
+                    label: 'iniciou o preenchimento'
+                })
+                preencheu = 1 
+                }
+                
+                })  
+                })
+
+                var orcamento = document.querySelector("a.btn-xl")
+                orcamento.addEventListener("click", function(){
+                    tracker.send("evento", {
+                    category:"orçamento",
+                    action:"enviou",
+                    label:"<<success||fail>>",
+                })
+                })
+
+                var midiasSociaisSereia = Array.from(document.querySelectorAll("footer .fa"))
+                midiasSociaisSereia.forEach(function(elemento1){
+                    elemento1.addEventListener('click', function(){
+                        tracker.send('evento', {
+                            category: 'social-sereia-software',
+                            action: 'clique',
+                            label: elemento1.classList[1].replace('fa-','')
+                        })
+                    })
+                })
+                var midiasSociaisDev = document.querySelectorAll("#team .fa")
+                Array.prototype.forEach.call(midiasSociaisDev,function(elemento1){
+                    elemento1.addEventListener('click', function(){
+                        tracker.send('evento', {
+                            category: 'social-sereia-software',
+                            action: 'clique',
+                            label: elemento1.parentElement.parentElement.parentElement.previousSibling.previousSibling.previousSibling.previousSibling.innerText+", "+elemento1.classList[1].replace('fa-','')
+                        })
+                    })
+                })
+                var menuSuperior = document.querySelectorAll("ul a.page-scroll")
+                Array.prototype.forEach.call(menuSuperior,function(elemento1){
+                    elemento1.addEventListener('click', function(){
+                        tracker.send('evento', {
+                          category: 'menu-superior',
+                          action: 'click',
+                          label: elemento1.innerHTML
+                        })
+                    })
+                })
+                var portfolio = document.querySelectorAll("a.portfolio-link")
+                Array.prototype.forEach.call(portfolio,function(elemento1){
+                    elemento1.addEventListener('click', function(){
+                        tracker.send('evento', {
+                          category: 'portfólio',
+                          action: 'clique',
+                          label: elemento1.nextSibling.nextSibling.firstElementChild.innerHTML 
+                        })
+                    })
+                })
+  </script>
+  
+  <script>
     /* jqBootstrapValidation
      * A plugin for automating validation on Twitter Bootstrap formatted forms.
      *
@@ -2500,6 +2600,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             cache: false,
             success: function() {
               // Success message
+              traker.send("evento",{
+                category: 'orçamento',
+                action: 'enviou',
+                label: "success"})
               $('#success').html("<div class='alert alert-success'>");
               $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                 .append("</button>");
@@ -2513,6 +2617,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             },
             error: function() {
               // Fail message
+              traker.send("evento",{
+                category: 'orçamento',
+                action: 'enviou',
+                label: "fail"})
               $('#success').html("<div class='alert alert-danger'>");
               $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                 .append("</button>");
@@ -2575,6 +2683,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     window.setTimeout(function() {
       var element = document.getElementById('call-me-baby');
       element.style.right = '20px';
+      traker.send("evento",{
+        category: 'telefone',
+        action: 'visualizou',
+        label: 'pop-up'})
+        
+
     }, Math.random() * 12000 + 5000);
   </script>
 
