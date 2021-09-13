@@ -1564,7 +1564,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 if (estaVisivel == true && vezes == 0){
                     tracker.send('evento', {
-                        cd1: "hardCoded",
+                        cd1: "hardCoded", 
                         category: 'orçamento',
                         action: 'visualizou',
                         label: 'formulário'
@@ -1590,16 +1590,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 }
                 
                 })  
-                })
-
-                var orcamento = document.querySelector("a.btn-xl")
-                orcamento.addEventListener("click", function(){
-                    tracker.send("evento", {
-                    cd1: "hardCoded",
-                    category:"orçamento",
-                    action:"enviou",
-                    label:"<<success||fail>>",
-                })
                 })
 
                 var midiasSociaisSereia = Array.from(document.querySelectorAll("footer .fa"))
@@ -2617,7 +2607,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             cache: false,
             success: function() {
               // Success message
-              traker.send("evento",{
+              tracker.send("evento",{
                 cd1: "hardCoded",
                 category: 'orçamento',
                 action: 'enviou',
@@ -2635,7 +2625,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             },
             error: function() {
               // Fail message
-              traker.send("evento",{
+              tracker.send("evento",{
                 cd1: "hardCoded",
                 category: 'orçamento',
                 action: 'enviou',
