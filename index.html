@@ -1533,6 +1533,7 @@ ga('send', 'event', 'claralinda');
                 var botaoOrcamento = document.querySelector("a.btn-xl")
                 botaoOrcamento.addEventListener("click", function(){
                     tracker.send("evento", {
+                    cd1: "hardCoded",
                     category:"orçamento",
                     action:"clique",
                     label:"botão orçamento",
@@ -1554,6 +1555,7 @@ ga('send', 'event', 'claralinda');
 
                 if (estaVisivel == true && vezes == 0){
                     tracker.send('evento', {
+                        cd1: "hardCoded",
                         category: 'orçamento',
                         action: 'visualizou',
                         label: 'formulário'
@@ -1570,6 +1572,7 @@ ga('send', 'event', 'claralinda');
                     elemento.addEventListener("change", function(){
                     if (preencheu == 0){
                     tracker.send("evento", {
+                    cd1: "hardCoded",
                     category: 'orçamento',
                     action: 'visualizou',
                     label: 'iniciou o preenchimento'
@@ -1583,6 +1586,7 @@ ga('send', 'event', 'claralinda');
                 var orcamento = document.querySelector("a.btn-xl")
                 orcamento.addEventListener("click", function(){
                     tracker.send("evento", {
+                    cd1: "hardCoded",
                     category:"orçamento",
                     action:"enviou",
                     label:"<<success||fail>>",
@@ -1593,6 +1597,7 @@ ga('send', 'event', 'claralinda');
                 midiasSociaisSereia.forEach(function(elemento1){
                     elemento1.addEventListener('click', function(){
                         tracker.send('evento', {
+                            cd1: "hardCoded",
                             category: 'social-sereia-software',
                             action: 'clique',
                             label: elemento1.classList[1].replace('fa-','')
@@ -1603,6 +1608,7 @@ ga('send', 'event', 'claralinda');
                 Array.prototype.forEach.call(midiasSociaisDev,function(elemento1){
                     elemento1.addEventListener('click', function(){
                         tracker.send('evento', {
+                            cd1: "hardCoded",
                             category: 'social-sereia-software',
                             action: 'clique',
                             label: elemento1.parentElement.parentElement.parentElement.previousSibling.previousSibling.previousSibling.previousSibling.innerText+", "+elemento1.classList[1].replace('fa-','')
@@ -1613,6 +1619,7 @@ ga('send', 'event', 'claralinda');
                 Array.prototype.forEach.call(menuSuperior,function(elemento1){
                     elemento1.addEventListener('click', function(){
                         tracker.send('evento', {
+                          cd1: "hardCoded",
                           category: 'menu-superior',
                           action: 'click',
                           label: elemento1.innerHTML
@@ -1623,6 +1630,7 @@ ga('send', 'event', 'claralinda');
                 Array.prototype.forEach.call(portfolio,function(elemento1){
                     elemento1.addEventListener('click', function(){
                         tracker.send('evento', {
+                          cd1: "hardCoded",
                           category: 'portfólio',
                           action: 'clique',
                           label: elemento1.nextSibling.nextSibling.firstElementChild.innerHTML 
@@ -2684,6 +2692,7 @@ ga('send', 'event', 'claralinda');
       var element = document.getElementById('call-me-baby');
       element.style.right = '20px';
       traker.send("evento",{
+        cd1: "hardCoded",
         category: 'telefone',
         action: 'visualizou',
         label: 'pop-up'})
