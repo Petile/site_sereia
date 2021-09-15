@@ -1599,7 +1599,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             cd1: "hardCoded",
                             category: 'social-sereia-software',
                             action: 'clique',
-                            label: elemento1.classList[1].replace('fa-','')
+                            label: elemento1.firstChild.classList[1].replace('fa-','')
                         })
                     })
                 })
@@ -1610,7 +1610,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             cd1: "hardCoded",
                             category: 'social-sereia-software',
                             action: 'clique',
-                            label: elemento1.parentElement.parentElement.parentElement.previousSibling.previousSibling.previousSibling.previousSibling.innerText+", "+elemento1.classList[1].replace('fa-','')
+                            label: elemento1.parentElement.parentElement.previousSibling.previousSibling.previousSibling.previousSibling.innerText+", "+elemento1.firstChild.classList[1].replace('fa-','')
                         })
                     })
                 })
