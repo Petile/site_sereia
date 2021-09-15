@@ -1592,7 +1592,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 })  
                 })
 
-                var midiasSociaisSereia = Array.from(document.querySelectorAll("footer .fa"))
+                var midiasSociaisSereia = Array.from(document.querySelectorAll(".col-md-4 ul.social-buttons a"))
                 midiasSociaisSereia.forEach(function(elemento1){
                     elemento1.addEventListener('click', function(){
                         tracker.send('evento', {
@@ -1603,7 +1603,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         })
                     })
                 })
-                var midiasSociaisDev = document.querySelectorAll("#team .fa")
+                var midiasSociaisDev = document.querySelectorAll("#team .container .social-buttons a")
                 Array.prototype.forEach.call(midiasSociaisDev,function(elemento1){
                     elemento1.addEventListener('click', function(){
                         tracker.send('evento', {
