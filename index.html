@@ -2596,8 +2596,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             firstName = name.split(' ').slice(0, -1).join(' ');
           }
           $.ajax({
-            url: "https://tag-trainer.raccoon.ag/site/mail/contact_me.php",
-            type: "POST",
+         
+            ///url: "https://tag-trainer.raccoon.ag/site/mail/contact_me.php",
+            url: location.href,
+            type: "GET",
             data: {
               name: name,
               phone: phone,
